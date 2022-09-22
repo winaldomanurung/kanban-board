@@ -1,0 +1,9 @@
+.category-column {
+  padding: 10px;
+  width: 380px;
+}
+
+.category-column__title {
+  color: white;
+  text-align: center;
+}

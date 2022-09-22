@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState, createContext } from "react";
+import "./App.css";
+import AddForm from "./components/AddForm";
+import KanbanBacklog from "./components/KanbanBacklog";
+import KanbanDone from "./components/KanbanDone";
+import KanbanOngoing from "./components/KanbanOngoing";
+import KanbanToDo from "./components/KanbanToDo";
+import { read } from "./helpers/crudTask";
+
+export const DataContext = createContext();
 
 function App() {
+  let [data, setData] = useState([]);
+  const [dataChange, setDataChange] = useState(false);
+
+  useEffect(() => {
+    const fetchData = read();
+    setData(fetchData);
+  }, [dataChange]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <DataContext.Provider value={{ dataChange, setDataChange }}>
+      <div className="container">
+        <h1 className="title">KANBAN BOARD</h1>
+        <div className="kanban">
+          <KanbanBacklog data={data} />
+          <KanbanToDo data={data} />
+          <KanbanOngoing data={data} />
+          <KanbanDone data={data} />
+          <AddForm />
+        </div>
+      </div>
+    </DataContext.Provider>
   );
 }
 

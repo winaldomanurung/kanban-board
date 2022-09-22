@@ -1,0 +1,73 @@
+li {
+  list-style: none;
+}
+
+.kanban__column {
+  flex: 1;
+  margin: 10px 0;
+}
+
+.kanban__item {
+  padding: 10px 15px;
+  box-sizing: border-box;
+  background: white;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+}
+
+.kanban__item-description {
+  width: 60%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.kanban__item-action {
+  margin: auto;
+}
+
+.kanban__item-action * {
+  cursor: pointer;
+  margin: auto;
+}
+
+.btn {
+  -webkit-appearance: none;
+  font-family: sans-serif;
+  border-radius: 8px;
+  cursor: pointer;
+  min-width: 40px;
+  border: 0px;
+  margin: 2px;
+  font-size: 20px;
+  padding: 4px;
+  height: 40px;
+}
+
+.btn:focus,
+.btn.focus {
+  outline: 0;
+}
+
+.btn-next,
+.btn-prev {
+  background: #00a6ed;
+  color: #ffffff;
+}
+
+.btn-next:hover,
+.btn-prev:hover {
+  background: #00a6ed;
+  color: #ffffff;
+}
+
+.btn-delete {
+  background: #e74c3c;
+  color: #ffffff;
+}
+
+.btn-delete:hover {
+  background: #c0392b;
+  color: #ffffff;
+}
